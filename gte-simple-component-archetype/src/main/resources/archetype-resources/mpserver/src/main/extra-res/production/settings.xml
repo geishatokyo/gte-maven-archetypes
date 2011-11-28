@@ -1,0 +1,22 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<configtan xmlns="http://www.geishatokyo.com/2011/configtan">
+    <msgpacks>
+        <msgpack name="default">
+            <host>0.0.0.0</host>
+            <port>12480</port>
+        </msgpack>
+    </msgpacks>
+    <databases>
+        <shard name="default">
+            <writer>
+                <database host="127.0.0.1" port="3306" db="chabi_${parentArtifactId}">
+<!-- FIXME: you must change authentication factors before running in production. -->
+                    <username>test</username>
+                    <password>SenKosya</password>
+                </database>
+            </writer>
+        </shard>
+    </databases>
+</configtan>

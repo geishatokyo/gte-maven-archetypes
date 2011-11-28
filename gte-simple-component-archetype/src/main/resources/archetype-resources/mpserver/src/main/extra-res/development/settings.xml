@@ -1,0 +1,32 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<configtan xmlns="http://www.geishatokyo.com/2011/configtan">
+
+
+    <msgpacks>
+        <msgpack name="default">
+            <host>localhost</host>
+            <port>12485</port>
+        </msgpack>
+
+    </msgpacks>
+    <aws>
+        <s3 name="movie">
+            <bucketName>movie.stage1.chabi.me</bucketName>
+            <accessKey>${symbol_dollar}{aws.s3.movie.accessKey}</accessKey>
+            <secretKey>${symbol_dollar}{aws.s3.movie.secretKey}</secretKey>
+        </s3>
+    </aws>
+    <databases>
+        <shard name="default">
+            <writer>
+                <database db="chabi_${parentArtifactId}">
+                    <username>${symbol_dollar}{mysql.username}</username>
+                    <password>${symbol_dollar}{mysql.password}</password>
+                </database>
+            </writer>
+        </shard>
+    </databases>
+
+</configtan>

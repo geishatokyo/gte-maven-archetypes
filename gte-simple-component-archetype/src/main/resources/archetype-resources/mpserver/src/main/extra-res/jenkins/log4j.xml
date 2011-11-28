@@ -1,0 +1,24 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="appender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %t %c{1} - %m%n" />
+        </layout>
+    </appender>
+    <category name="net.rubyeye.xmemcached.impl" >
+        <priority value ="INFO" />
+        <appender-ref ref="appender" />
+    </category>
+    <category name="com.google.code.yanf4j.core.impl.AbstractSession" >
+        <priority value ="INFO" />
+        <appender-ref ref="appender" />
+    </category>
+    <root>    
+        <priority value="DEBUG"/>
+        <appender-ref ref="appender"/>
+    </root>
+</log4j:configuration>

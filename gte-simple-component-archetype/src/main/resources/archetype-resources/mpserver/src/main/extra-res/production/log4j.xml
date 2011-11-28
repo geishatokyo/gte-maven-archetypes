@@ -1,0 +1,39 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8" ?>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/u/apps/rpc-${parentArtifactId}/current/log/${parentArtifactId}-error.log"/>
+        <param name="Append" value="true"/>
+            <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %t %c{1} - %m%n" />
+        </layout>
+    </appender>
+    <appender name="analysis" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/u/apps/rpc-${parentArtifactId}/current/log/${parentArtifactId}-analysis.log"/>
+        <param name="Append" value="true"/>
+            <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %t %c{1} - %m%n" />
+        </layout>
+    </appender>
+    <category name="${package}.logger.StatisticsLogger" >
+        <priority value ="DEBUG" />
+        <appender-ref ref="analysis" />
+    </category>
+    <category name="net.rubyeye.xmemcached.impl" >
+        <priority value ="INFO" />
+        <appender-ref ref="file" />
+    </category>
+    <category name="com.google.code.yanf4j.core.impl.AbstractSession" >
+        <priority value ="INFO" />
+        <appender-ref ref="file" />
+    </category>
+
+    <root>
+        <priority value="DEBUG"/>
+        <appender-ref ref="file"/>
+    </root>
+</log4j:configuration>

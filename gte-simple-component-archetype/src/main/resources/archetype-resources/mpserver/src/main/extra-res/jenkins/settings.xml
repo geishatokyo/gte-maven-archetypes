@@ -1,0 +1,25 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<configtan xmlns="http://www.geishatokyo.com/2011/configtan">
+
+
+    <msgpacks>
+        <msgpack name="default">
+            <host>localhost</host>
+            <port>12486</port>
+        </msgpack>
+
+    </msgpacks>
+    <databases>
+        <shard name="default">
+            <writer>
+                <database db="jenkins">
+                    <username>jenkins</username>
+                    <password>jenkins</password>
+                </database>
+            </writer>
+        </shard>
+    </databases>
+
+</configtan>

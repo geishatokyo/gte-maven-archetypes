@@ -4,6 +4,7 @@
     <modules>
         <module>gte-component-archetype</module>
         <module>gte-scala-archetype</module>
+        <module>gte-simple-component-archetype</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.geishatokyo.archetypes</groupId>
