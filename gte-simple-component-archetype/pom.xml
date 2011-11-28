@@ -6,4 +6,16 @@
   <version>1.0</version>
   <name>Archetype - gte-simple-component</name>
   <url>http://maven.apache.org</url>
+  
+  
+    <distributionManagement>
+        <repository>
+            <id>geishatokyo-releases</id>
+            <url>${deploy-release}</url>
+        </repository>
+        <snapshotRepository>
+            <id>geishatokyo-snapshots</id>
+            <url>${deploy-snapshot}</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
